@@ -1,4 +1,3 @@
-
 import { MenuItem } from "../types/bill";
 
 export const menuItems: MenuItem[] = [
@@ -204,6 +203,83 @@ export const menuItems: MenuItem[] = [
     name: "CHICKEN BIRYANI",
     description: "Fragrant rice dish with chicken pieces",
     price: 140,
+    category: "non-veg"
+  },
+  {
+    id: "nv30",
+    name: "CHICKEN TIKKA MASALA",
+    description: "Grilled chicken pieces in spicy tomato gravy",
+    price: 180,
+    category: "non-veg"
+  },
+  {
+    id: "nv31",
+    name: "BUTTER CHICKEN",
+    description: "Tender chicken in rich tomato and butter gravy",
+    price: 190,
+    category: "non-veg"
+  },
+  {
+    id: "nv32",
+    name: "FISH CURRY",
+    description: "Fresh fish cooked in aromatic curry sauce",
+    price: 160,
+    category: "non-veg"
+  },
+  {
+    id: "nv33",
+    name: "PRAWN MASALA",
+    description: "Prawns cooked with onions, tomatoes and spices",
+    price: 200,
+    category: "non-veg"
+  },
+  {
+    id: "nv34",
+    name: "CHILLI CHICKEN",
+    description: "Spicy Indo-Chinese style fried chicken",
+    price: 170,
+    category: "non-veg"
+  },
+  {
+    id: "nv35",
+    name: "CHICKEN MANCHURIAN",
+    description: "Chicken fritters in tangy Manchurian sauce",
+    price: 180,
+    category: "non-veg"
+  },
+  {
+    id: "nv36",
+    name: "CHICKEN FRIED RICE",
+    description: "Stir-fried rice with chicken and vegetables",
+    price: 150,
+    category: "non-veg"
+  },
+  {
+    id: "nv37",
+    name: "EGG CURRY",
+    description: "Boiled eggs in flavorful curry sauce",
+    price: 130,
+    category: "non-veg"
+  },
+  {
+    id: "nv38",
+    name: "CHICKEN LOLLIPOP",
+    description: "Spicy chicken winglets shaped like lollipops",
+    price: 160,
+    category: "non-veg"
+  },
+  {
+    id: "nv39",
+    name: "TANDOORI CHICKEN",
+    description: "Chicken marinated in yogurt and spices, roasted in tandoor",
+    price: 210,
+    category: "non-veg"
+  },
+  {
+    id: "nv40",
+    name: "FISH FRY",
+    description: "Spiced and fried fish fillets",
+    price: 180,
     category: "non-veg"
   },
   
@@ -591,6 +667,90 @@ export const menuItems: MenuItem[] = [
     name: "GREEN SALAD",
     description: "Fresh vegetable salad",
     price: 70,
+    category: "veg"
+  },
+  {
+    id: "v56",
+    name: "GOBI MANCHURIAN",
+    description: "Crispy cauliflower in spicy Manchurian sauce",
+    price: 140,
+    category: "veg"
+  },
+  {
+    id: "v57",
+    name: "VEGGIE SPRING ROLLS",
+    description: "Crispy rolls filled with vegetables",
+    price: 120,
+    category: "veg"
+  },
+  {
+    id: "v58",
+    name: "VEGETABLE HAKKA NOODLES",
+    description: "Stir-fried noodles with vegetables",
+    price: 130,
+    category: "veg"
+  },
+  {
+    id: "v59",
+    name: "CHILLI PANEER",
+    description: "Spicy Indo-Chinese style paneer preparation",
+    price: 160,
+    category: "veg"
+  },
+  {
+    id: "v60",
+    name: "SCHEZWAN FRIED RICE",
+    description: "Spicy rice with Schezwan sauce and vegetables",
+    price: 140,
+    category: "veg"
+  },
+  {
+    id: "v61",
+    name: "PALAK PANEER",
+    description: "Paneer cubes in creamy spinach gravy",
+    price: 160,
+    category: "veg"
+  },
+  {
+    id: "v62",
+    name: "MALAI KOFTA",
+    description: "Potato and cheese dumplings in rich creamy sauce",
+    price: 170,
+    category: "veg"
+  },
+  {
+    id: "v63",
+    name: "PANEER BUTTER MASALA",
+    description: "Paneer in rich tomato and butter gravy",
+    price: 180,
+    category: "veg"
+  },
+  {
+    id: "v64",
+    name: "GOBI PARATHA",
+    description: "Flatbread stuffed with spiced cauliflower",
+    price: 60,
+    category: "veg"
+  },
+  {
+    id: "v65",
+    name: "MUSHROOM MASALA",
+    description: "Mushrooms cooked in spicy onion tomato gravy",
+    price: 150,
+    category: "veg"
+  },
+  {
+    id: "v66",
+    name: "VEG BIRYANI",
+    description: "Fragrant rice cooked with mixed vegetables and spices",
+    price: 130,
+    category: "veg"
+  },
+  {
+    id: "v67",
+    name: "CURD RICE",
+    description: "Rice mixed with yogurt and tempering",
+    price: 80,
     category: "veg"
   },
   
