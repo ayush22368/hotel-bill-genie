@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Bill, BillItem } from "../types/bill";
 import { useAdmin } from "./AdminContext";
@@ -31,7 +30,6 @@ export const BillProvider = ({ children }: { children: ReactNode }) => {
   
   const [savedBills, setSavedBills] = useState<Bill[]>([]);
   
-  // Load saved bills from localStorage
   useEffect(() => {
     const savedBillsData = localStorage.getItem("hotelBills");
     if (savedBillsData) {
@@ -39,7 +37,6 @@ export const BillProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
   
-  // Save bills to localStorage when they change
   useEffect(() => {
     localStorage.setItem("hotelBills", JSON.stringify(savedBills));
   }, [savedBills]);
@@ -54,11 +51,9 @@ export const BillProvider = ({ children }: { children: ReactNode }) => {
   
   const addToBill = (item: BillItem) => {
     setCurrentBill(prev => {
-      // Check if item already exists
       const existingItemIndex = prev.items.findIndex(i => i.id === item.id);
       
       if (existingItemIndex >= 0) {
-        // Update quantity if item exists
         const newItems = [...prev.items];
         newItems[existingItemIndex] = {
           ...newItems[existingItemIndex],
@@ -66,7 +61,6 @@ export const BillProvider = ({ children }: { children: ReactNode }) => {
         };
         return { ...prev, items: newItems };
       } else {
-        // Add new item
         return { ...prev, items: [...prev.items, item] };
       }
     });
