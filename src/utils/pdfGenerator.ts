@@ -47,7 +47,11 @@ export const generateBillPDF = (bill: Bill): void => {
   // Add totals
   const finalY = (doc as any).lastAutoTable.finalY + 10;
   doc.text(`Subtotal: ₹${bill.subtotal}`, 130, finalY);
-  doc.text(`GST (5%): ₹${bill.tax}`, 130, finalY + 7);
+  
+  // Calculate GST percentage based on the tax amount
+  const gstPercentage = Math.round((bill.tax / bill.subtotal) * 100);
+  doc.text(`GST (${gstPercentage}%): ₹${bill.tax}`, 130, finalY + 7);
+  
   doc.text(`Total: ₹${bill.total}`, 130, finalY + 14);
   
   // Add footer

@@ -1,6 +1,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Bill, BillItem } from "../types/bill";
+import { useAdmin } from "./AdminContext";
 
 interface BillContextType {
   currentBill: {
@@ -21,6 +22,7 @@ interface BillContextType {
 const BillContext = createContext<BillContextType | undefined>(undefined);
 
 export const BillProvider = ({ children }: { children: ReactNode }) => {
+  const { gstPercentage } = useAdmin();
   const [currentBill, setCurrentBill] = useState({
     customerName: "",
     tableNumber: "",
@@ -91,7 +93,7 @@ export const BillProvider = ({ children }: { children: ReactNode }) => {
     }
     
     const subtotal = currentBill.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const tax = Math.round(subtotal * 0.05);
+    const tax = Math.round(subtotal * (gstPercentage / 100));
     const total = subtotal + tax;
     
     const newBill: Bill = {

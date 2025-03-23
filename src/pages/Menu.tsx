@@ -1,13 +1,15 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuItem from "../components/MenuItem";
 import BillItem from "../components/BillItem";
 import { menuItems } from "../data/menuItems";
 import { useBill } from "../context/BillContext";
+import { useAdmin } from "../context/AdminContext";
 import { toast } from "sonner";
 import { generateBillPDF } from "../utils/pdfGenerator";
 import { Download, Search } from "lucide-react";
 import { Input } from "../components/ui/input";
+import AdminPanel from "../components/AdminPanel";
 
 const MenuPage = () => {
   const { 
@@ -20,10 +22,18 @@ const MenuPage = () => {
     generateBill
   } = useBill();
   
+  const { gstPercentage } = useAdmin();
+  
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [localMenuItems, setLocalMenuItems] = useState(menuItems);
   
-  const filteredItems = menuItems.filter(item => {
+  // Update local menu items when the original array changes
+  useEffect(() => {
+    setLocalMenuItems([...menuItems]);
+  }, [menuItems]);
+  
+  const filteredItems = localMenuItems.filter(item => {
     // First filter by search term
     const matchesSearch = searchTerm === "" || 
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -88,7 +98,7 @@ const MenuPage = () => {
   };
   
   const calculateTax = () => {
-    return Math.round(calculateSubtotal() * 0.05);
+    return Math.round(calculateSubtotal() * (gstPercentage / 100));
   };
   
   const calculateTotal = () => {
@@ -169,7 +179,7 @@ const MenuPage = () => {
                   name={item.name}
                   description={item.description}
                   price={item.price}
-                  onAdd={handleAddItem}
+                  onAdd={addToBill}
                 />
               ))
             ) : (
@@ -227,7 +237,7 @@ const MenuPage = () => {
                       name={item.name}
                       price={item.price}
                       quantity={item.quantity}
-                      onRemove={handleRemoveItem}
+                      onRemove={removeFromBill}
                     />
                   ))}
                 </div>
@@ -238,7 +248,7 @@ const MenuPage = () => {
                     <span>₹{calculateSubtotal()}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>GST (5%)</span>
+                    <span>GST ({gstPercentage}%)</span>
                     <span>₹{calculateTax()}</span>
                   </div>
                   <div className="flex justify-between font-bold">
@@ -252,7 +262,7 @@ const MenuPage = () => {
             <div className="mt-6 grid grid-cols-2 gap-4">
               <button
                 className="py-2 px-4 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-                onClick={handleClearBill}
+                onClick={clearBill}
               >
                 Clear
               </button>
@@ -267,6 +277,8 @@ const MenuPage = () => {
           </div>
         </div>
       </div>
+      
+      <AdminPanel />
     </div>
   );
 };
