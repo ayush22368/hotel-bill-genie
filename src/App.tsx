@@ -10,15 +10,21 @@ import HistoryPage from "./pages/History";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import { BillProvider } from "./context/BillContext";
-import { AdminProvider } from "./context/AdminContext";
+import { AdminProvider, useAdmin } from "./context/AdminContext";
 
 const queryClient = new QueryClient();
+
+// Create a component that connects AdminContext to BillProvider
+const BillProviderWithAdmin = ({ children }: { children: React.ReactNode }) => {
+  const { gstPercentage } = useAdmin();
+  return <BillProvider gstPercentage={gstPercentage}>{children}</BillProvider>;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <AdminProvider>
-        <BillProvider>
+        <BillProviderWithAdmin>
           <Toaster />
           <Sonner />
           <BrowserRouter>
@@ -31,7 +37,7 @@ const App = () => (
               </Route>
             </Routes>
           </BrowserRouter>
-        </BillProvider>
+        </BillProviderWithAdmin>
       </AdminProvider>
     </TooltipProvider>
   </QueryClientProvider>

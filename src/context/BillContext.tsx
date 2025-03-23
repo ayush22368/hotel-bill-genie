@@ -1,6 +1,6 @@
+
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Bill, BillItem } from "../types/bill";
-import { useAdmin } from "./AdminContext";
 
 interface BillContextType {
   currentBill: {
@@ -20,8 +20,12 @@ interface BillContextType {
 
 const BillContext = createContext<BillContextType | undefined>(undefined);
 
-export const BillProvider = ({ children }: { children: ReactNode }) => {
-  const { gstPercentage } = useAdmin();
+interface BillProviderProps {
+  children: ReactNode;
+  gstPercentage: number;
+}
+
+export const BillProvider = ({ children, gstPercentage }: BillProviderProps) => {
   const [currentBill, setCurrentBill] = useState({
     customerName: "",
     tableNumber: "",
