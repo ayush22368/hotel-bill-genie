@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { FileText, History } from "lucide-react";
+import AdminPanel from "../components/AdminPanel";
 
 const HomePage = () => {
   return (
@@ -32,6 +33,8 @@ const HomePage = () => {
           </p>
         </Link>
       </div>
+      
+      <AdminPanel />
     </div>
   );
 };

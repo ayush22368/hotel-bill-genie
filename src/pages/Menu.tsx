@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import MenuItem from "../components/MenuItem";
 import BillItem from "../components/BillItem";
@@ -9,7 +8,6 @@ import { toast } from "sonner";
 import { generateBillPDF } from "../utils/pdfGenerator";
 import { Download, Search } from "lucide-react";
 import { Input } from "../components/ui/input";
-import AdminPanel from "../components/AdminPanel";
 
 const MenuPage = () => {
   const { 
@@ -28,20 +26,17 @@ const MenuPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [localMenuItems, setLocalMenuItems] = useState(menuItems);
   
-  // Update local menu items when the original array changes
   useEffect(() => {
     setLocalMenuItems([...menuItems]);
   }, [menuItems]);
   
   const filteredItems = localMenuItems.filter(item => {
-    // First filter by search term
     const matchesSearch = searchTerm === "" || 
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.description.toLowerCase().includes(searchTerm.toLowerCase());
     
     if (!matchesSearch) return false;
     
-    // Then filter by category
     if (activeCategory === "all") return true;
     return item.category === activeCategory;
   });
@@ -277,8 +272,6 @@ const MenuPage = () => {
           </div>
         </div>
       </div>
-      
-      <AdminPanel />
     </div>
   );
 };
