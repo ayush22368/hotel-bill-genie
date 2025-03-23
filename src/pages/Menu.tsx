@@ -179,7 +179,7 @@ const MenuPage = () => {
                   name={item.name}
                   description={item.description}
                   price={item.price}
-                  onAdd={addToBill}
+                  onAdd={handleAddItem}
                 />
               ))
             ) : (
