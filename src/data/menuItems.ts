@@ -289,7 +289,7 @@ export const menuItems: MenuItem[] = [
     name: "SAMOSA",
     description: "Crispy fried pastry with savory filling",
     price: 15,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v2",
@@ -338,14 +338,14 @@ export const menuItems: MenuItem[] = [
     name: "MEDU VADA",
     description: "Crispy lentil doughnut",
     price: 50,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v9",
     name: "ONION BHAJIYA",
     description: "Crispy onion fritters",
     price: 50,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v10",
@@ -359,28 +359,28 @@ export const menuItems: MenuItem[] = [
     name: "ALOO PARATHA",
     description: "Stuffed flatbread with potato filling",
     price: 70,
-    category: "veg"
+    category: "roti"
   },
   {
     id: "v12",
     name: "PANEER PARATHA",
     description: "Stuffed flatbread with paneer filling",
     price: 90,
-    category: "veg"
+    category: "roti"
   },
   {
     id: "v13",
     name: "CHEESE PARATHA",
     description: "Stuffed flatbread with cheese filling",
     price: 110,
-    category: "veg"
+    category: "roti"
   },
   {
     id: "v14",
     name: "KACHORI",
     description: "Spicy deep-fried snack",
     price: 40,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v15",
@@ -394,21 +394,21 @@ export const menuItems: MenuItem[] = [
     name: "CHOLE SAMOSA",
     description: "Samosa topped with chickpea curry",
     price: 50,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v17",
     name: "PANI PURI",
     description: "Hollow crisp with flavored water",
     price: 25,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v18",
     name: "BATATA VADA",
     description: "Spiced potato fritters",
     price: 15,
-    category: "veg"
+    category: "snacks"
   },
   {
     id: "v19",
@@ -730,7 +730,7 @@ export const menuItems: MenuItem[] = [
     name: "GOBI PARATHA",
     description: "Flatbread stuffed with spiced cauliflower",
     price: 60,
-    category: "veg"
+    category: "roti"
   },
   {
     id: "v65",
@@ -752,6 +752,57 @@ export const menuItems: MenuItem[] = [
     description: "Rice mixed with yogurt and tempering",
     price: 80,
     category: "veg"
+  },
+  
+  // Roti Items
+  {
+    id: "r1",
+    name: "ROTI",
+    description: "Traditional Indian flatbread",
+    price: 15,
+    category: "roti"
+  },
+  {
+    id: "r2",
+    name: "BUTTER ROTI",
+    description: "Flatbread topped with butter",
+    price: 20,
+    category: "roti"
+  },
+  {
+    id: "r3",
+    name: "NAN",
+    description: "Leavened flatbread",
+    price: 30,
+    category: "roti"
+  },
+  {
+    id: "r4",
+    name: "BUTTER NAN",
+    description: "Leavened flatbread topped with butter",
+    price: 35,
+    category: "roti"
+  },
+  {
+    id: "r5",
+    name: "GARLIC NAN",
+    description: "Leavened flatbread with garlic",
+    price: 40,
+    category: "roti"
+  },
+  {
+    id: "r6",
+    name: "BHAKRI",
+    description: "Traditional thick flatbread",
+    price: 25,
+    category: "roti"
+  },
+  {
+    id: "v64",
+    name: "GOBI PARATHA",
+    description: "Flatbread stuffed with spiced cauliflower",
+    price: 60,
+    category: "roti"
   },
   
   // Drink Items

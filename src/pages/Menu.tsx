@@ -6,7 +6,8 @@ import { menuItems } from "../data/menuItems";
 import { useBill } from "../context/BillContext";
 import { toast } from "sonner";
 import { generateBillPDF } from "../utils/pdfGenerator";
-import { Download } from "lucide-react";
+import { Download, Search } from "lucide-react";
+import { Input } from "../components/ui/input";
 
 const MenuPage = () => {
   const { 
@@ -20,15 +21,20 @@ const MenuPage = () => {
   } = useBill();
   
   const [activeCategory, setActiveCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
   
-  const filteredItems = activeCategory === "all" 
-    ? menuItems 
-    : menuItems.filter(item => {
-        if (activeCategory === "non-veg") return item.category === "non-veg";
-        if (activeCategory === "veg") return item.category === "veg";
-        if (activeCategory === "drinks") return item.category === "drinks";
-        return true;
-      });
+  const filteredItems = menuItems.filter(item => {
+    // First filter by search term
+    const matchesSearch = searchTerm === "" || 
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.description.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    if (!matchesSearch) return false;
+    
+    // Then filter by category
+    if (activeCategory === "all") return true;
+    return item.category === activeCategory;
+  });
   
   const handleAddItem = (id: string, quantity: number) => {
     const menuItem = menuItems.find(item => item.id === id);
@@ -100,6 +106,19 @@ const MenuPage = () => {
         <div className="lg:w-2/3">
           <h2 className="text-2xl font-bold mb-4">Menu</h2>
           
+          <div className="mb-4 relative">
+            <div className="relative">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+              <Input
+                className="pl-10"
+                type="search"
+                placeholder="Search for items..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
+          
           <div className="mb-6 border-b border-gray-200">
             <div className="flex overflow-x-auto">
               <button 
@@ -121,6 +140,18 @@ const MenuPage = () => {
                 Veg Items
               </button>
               <button 
+                className={`menu-tab ${activeCategory === "snacks" ? "active" : ""}`}
+                onClick={() => setActiveCategory("snacks")}
+              >
+                Snacks
+              </button>
+              <button 
+                className={`menu-tab ${activeCategory === "roti" ? "active" : ""}`}
+                onClick={() => setActiveCategory("roti")}
+              >
+                Roti
+              </button>
+              <button 
                 className={`menu-tab ${activeCategory === "drinks" ? "active" : ""}`}
                 onClick={() => setActiveCategory("drinks")}
               >
@@ -130,16 +161,23 @@ const MenuPage = () => {
           </div>
           
           <div className="space-y-4">
-            {filteredItems.map(item => (
-              <MenuItem
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-                onAdd={handleAddItem}
-              />
-            ))}
+            {filteredItems.length > 0 ? (
+              filteredItems.map(item => (
+                <MenuItem
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  description={item.description}
+                  price={item.price}
+                  onAdd={handleAddItem}
+                />
+              ))
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-gray-500">No items found matching your search.</p>
+                <p className="text-gray-400 text-sm mt-2">Try a different search term or category.</p>
+              </div>
+            )}
           </div>
         </div>
         

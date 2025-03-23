@@ -4,7 +4,7 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
-  category: 'veg' | 'non-veg' | 'drinks';
+  category: 'veg' | 'non-veg' | 'drinks' | 'snacks' | 'roti';
 }
 
 export interface BillItem {
