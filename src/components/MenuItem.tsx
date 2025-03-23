@@ -31,7 +31,7 @@ const MenuItem = ({ id, name, description, price, onAdd }: MenuItemProps) => {
   };
   
   return (
-    <div className="bill-item p-4 border border-gray-200 rounded-lg">
+    <div className="bill-item p-4 border border-gray-200 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow">
       <div className="flex-1 mb-3">
         <h3 className="font-medium text-gray-900 uppercase">{name}</h3>
         <p className="text-gray-500 text-sm">{description}</p>
@@ -62,7 +62,7 @@ const MenuItem = ({ id, name, description, price, onAdd }: MenuItemProps) => {
           </div>
           
           <button 
-            className={`px-3 py-1 rounded-md ${quantity > 0 ? 'bg-primary text-white' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+            className={`px-3 py-1 rounded-md ${quantity > 0 ? 'bg-primary text-white hover:bg-blue-600' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
             onClick={handleAdd}
             disabled={quantity === 0}
           >
