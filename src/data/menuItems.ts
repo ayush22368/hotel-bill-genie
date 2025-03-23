@@ -1,3 +1,4 @@
+
 import { MenuItem } from "../types/bill";
 
 export const menuItems: MenuItem[] = [
@@ -285,13 +286,6 @@ export const menuItems: MenuItem[] = [
   
   // Veg Items
   {
-    id: "v1",
-    name: "SAMOSA",
-    description: "Crispy fried pastry with savory filling",
-    price: 15,
-    category: "snacks"
-  },
-  {
     id: "v2",
     name: "MASALA DOSA",
     description: "Crispy dosa with spiced potato filling",
@@ -334,20 +328,6 @@ export const menuItems: MenuItem[] = [
     category: "veg"
   },
   {
-    id: "v8",
-    name: "MEDU VADA",
-    description: "Crispy lentil doughnut",
-    price: 50,
-    category: "snacks"
-  },
-  {
-    id: "v9",
-    name: "ONION BHAJIYA",
-    description: "Crispy onion fritters",
-    price: 50,
-    category: "snacks"
-  },
-  {
     id: "v10",
     name: "PURI BHAJI",
     description: "Puffed bread with potato curry",
@@ -355,60 +335,11 @@ export const menuItems: MenuItem[] = [
     category: "veg"
   },
   {
-    id: "v11",
-    name: "ALOO PARATHA",
-    description: "Stuffed flatbread with potato filling",
-    price: 70,
-    category: "roti"
-  },
-  {
-    id: "v12",
-    name: "PANEER PARATHA",
-    description: "Stuffed flatbread with paneer filling",
-    price: 90,
-    category: "roti"
-  },
-  {
-    id: "v13",
-    name: "CHEESE PARATHA",
-    description: "Stuffed flatbread with cheese filling",
-    price: 110,
-    category: "roti"
-  },
-  {
-    id: "v14",
-    name: "KACHORI",
-    description: "Spicy deep-fried snack",
-    price: 40,
-    category: "snacks"
-  },
-  {
     id: "v15",
     name: "CHOLE BHATURE",
     description: "Fried bread with chickpea curry",
     price: 110,
     category: "veg"
-  },
-  {
-    id: "v16",
-    name: "CHOLE SAMOSA",
-    description: "Samosa topped with chickpea curry",
-    price: 50,
-    category: "snacks"
-  },
-  {
-    id: "v17",
-    name: "PANI PURI",
-    description: "Hollow crisp with flavored water",
-    price: 25,
-    category: "snacks"
-  },
-  {
-    id: "v18",
-    name: "BATATA VADA",
-    description: "Spiced potato fritters",
-    price: 15,
-    category: "snacks"
   },
   {
     id: "v19",
@@ -726,13 +657,6 @@ export const menuItems: MenuItem[] = [
     category: "veg"
   },
   {
-    id: "v64",
-    name: "GOBI PARATHA",
-    description: "Flatbread stuffed with spiced cauliflower",
-    price: 60,
-    category: "roti"
-  },
-  {
     id: "v65",
     name: "MUSHROOM MASALA",
     description: "Mushrooms cooked in spicy onion tomato gravy",
@@ -798,11 +722,118 @@ export const menuItems: MenuItem[] = [
     category: "roti"
   },
   {
-    id: "v64",
+    id: "r7",
     name: "GOBI PARATHA",
     description: "Flatbread stuffed with spiced cauliflower",
     price: 60,
     category: "roti"
+  },
+  {
+    id: "r8",
+    name: "ALOO PARATHA",
+    description: "Stuffed flatbread with potato filling",
+    price: 70,
+    category: "roti"
+  },
+  {
+    id: "r9",
+    name: "PANEER PARATHA",
+    description: "Stuffed flatbread with paneer filling",
+    price: 90,
+    category: "roti"
+  },
+  {
+    id: "r10",
+    name: "CHEESE PARATHA",
+    description: "Stuffed flatbread with cheese filling",
+    price: 110,
+    category: "roti"
+  },
+  
+  // Snacks Items
+  {
+    id: "s1",
+    name: "SAMOSA",
+    description: "Crispy fried pastry with savory filling",
+    price: 15,
+    category: "snacks"
+  },
+  {
+    id: "s2",
+    name: "MEDU VADA",
+    description: "Crispy lentil doughnut",
+    price: 50,
+    category: "snacks"
+  },
+  {
+    id: "s3",
+    name: "ONION BHAJIYA",
+    description: "Crispy onion fritters",
+    price: 50,
+    category: "snacks"
+  },
+  {
+    id: "s4",
+    name: "KACHORI",
+    description: "Spicy deep-fried snack",
+    price: 40,
+    category: "snacks"
+  },
+  {
+    id: "s5",
+    name: "CHOLE SAMOSA",
+    description: "Samosa topped with chickpea curry",
+    price: 50,
+    category: "snacks"
+  },
+  {
+    id: "s6",
+    name: "PANI PURI",
+    description: "Hollow crisp with flavored water",
+    price: 25,
+    category: "snacks"
+  },
+  {
+    id: "s7",
+    name: "BATATA VADA",
+    description: "Spiced potato fritters",
+    price: 15,
+    category: "snacks"
+  },
+  {
+    id: "s8",
+    name: "FRENCH FRIES",
+    description: "Crispy fried potato strips",
+    price: 80,
+    category: "snacks"
+  },
+  {
+    id: "s9",
+    name: "CHEESE BALLS",
+    description: "Deep-fried cheese-filled snacks",
+    price: 90,
+    category: "snacks"
+  },
+  {
+    id: "s10",
+    name: "CORN PAKORAS",
+    description: "Crispy corn fritters with spices",
+    price: 70,
+    category: "snacks"
+  },
+  {
+    id: "s11",
+    name: "ALOO TIKKI",
+    description: "Spiced potato patties",
+    price: 60,
+    category: "snacks"
+  },
+  {
+    id: "s12",
+    name: "BREAD PAKORA",
+    description: "Bread slices dipped in gram flour batter and fried",
+    price: 40,
+    category: "snacks"
   },
   
   // Drink Items
